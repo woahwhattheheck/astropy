@@ -1,0 +1,11 @@
+``LombScargle`` with ``method="fastchi2"`` now computes ill-conditioned
+frequencies from the weighted design matrix, avoiding inaccurate or negative
+powers and singular-matrix errors for clustered observations and aliased
+harmonics. Well-conditioned frequencies use batched normal-equation solves
+with bounded temporary storage.
+
+The ``chi2``, ``slow``, and ``cython`` Lomb-Scargle methods now compute the
+least-squares projection at frequencies with a rank-deficient real sampled model,
+instead of returning inconsistent powers or raising ``LinAlgError``.
+``LombScargle.model`` and ``model_parameters`` use the corresponding
+minimum-norm least-squares solution.
