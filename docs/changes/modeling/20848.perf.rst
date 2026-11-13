@@ -2,3 +2,7 @@ Compound models now defer parameter metadata until it is used, reducing memory
 and construction time for large expressions. Arithmetic evaluation, additive
 analytic derivatives, copying, and subtree indexing avoid recursive or repeated
 intermediate work for deeply nested sums.
+
+Reduced evaluation memory for ``Chebyshev2D``, ``Legendre2D`` and ``Hermite2D``
+by evaluating their series with nested Clenshaw recurrences. Working arrays are
+released after evaluation instead of being retained on the model.
